@@ -2,13 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&display=swap');
-  
-:root {
-  --main: #A3E636;
-  --overlay: rgba(0, 0, 0, 0.8); /* background color overlay for alert dialogs, modals, etc. */
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&display=swap");
 
-  --bg: #E0E7F1;
+:root {
+  --main: #a3e636;
+  --overlay: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* background color overlay for alert dialogs, modals, etc. */
+
+  --bg: #e0e7f1;
   --bw: #fff; /* white and secondary black e.g. utility class variant would be: bg-[#fff] dark:bg-[#212121] */
   --blank: #000; /* blank black and white */
   --border: #000;
@@ -41,15 +46,16 @@
   --shadow: var(--box-shadow-x) var(--box-shadow-y) 0px 0px var(--border);
 }
 
-html{
+html {
   font-family: "Big Shoulders Display", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   background-color: var(--bg);
 }
 
-#app{
+#app {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
 }
+
