@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Matemáticas Básicas",
+    "url": "",
+    "syllabus": [
+      {
+        "name": "",
+        "url":""
+      }
+    ]
+  },
+  {
+    "name": "Sistemas Operativos",
+    "url": "",
+    "syllabus": [
+      {
+        "name": "",
+        "url":""
+      }
+    ]
+  },
+  {
+    "name": "Programación Imperativa",
+    "url": "",
+
+    "syllabus": [
+      {
+        "name": "",
+        "url":""
+      }
+    ]
+  },
+  {
+    "name": "Programación Orientada a Objetos",
+    "url": "",
+    "syllabus": [
+      {
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Programación Concurrente",
+    "url": "",
+    "syllabus": [
+      {
+        "name": "",
+        "url":""
+      }
+    ]
+  }
+]
