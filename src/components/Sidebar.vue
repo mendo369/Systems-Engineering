@@ -1,20 +1,21 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue';
+import { useSubjectsStore } from '../store/subjects.store';
+
+const store = useSubjectsStore()
+
+const subjects = ref()
+
+store.loadSubjects()
+
+
+subjects.value=store.getAllSubjects
+</script>
 
 <template>
   <aside class="w-[10vw] h-full overflow-y-auto scrollbar bg-white border-r-4 border-black">
       <ul class="flex flex-col">
-        <li class="block border-b-4 border-r-4 border-black dark:border-darkNavBorder p-4 text-xl font-heading">item</li>
-        <li class="block border-b-4 border-r-4 border-black dark:border-darkNavBorder p-4 text-xl font-heading">item</li>
-        <li class="block border-b-4 border-r-4 border-black dark:border-darkNavBorder p-4 text-xl font-heading">item</li>
-        <li class="block border-b-4 border-r-4 border-black dark:border-darkNavBorder p-4 text-xl font-heading">item</li>
-        <li class="block border-b-4 border-r-4 border-black dark:border-darkNavBorder p-4 text-xl font-heading">item</li>
-        <li class="block border-b-4 border-r-4 border-black dark:border-darkNavBorder p-4 text-xl font-heading">item</li>
-        <li class="block border-b-4 border-r-4 border-black dark:border-darkNavBorder p-4 text-xl font-heading">item</li>
-        <li class="block border-b-4 border-r-4 border-black dark:border-darkNavBorder p-4 text-xl font-heading">item</li>
-        <li class="block border-b-4 border-r-4 border-black dark:border-darkNavBorder p-4 text-xl font-heading">item</li>
-        <li class="block border-b-4 border-r-4 border-black dark:border-darkNavBorder p-4 text-xl font-heading">item</li>
-        <li class="block border-b-4 border-r-4 border-black dark:border-darkNavBorder p-4 text-xl font-heading">item</li>
-        <li class="block border-b-4 border-r-4 border-black dark:border-darkNavBorder p-4 text-xl font-heading">item</li>
+        <li class="block border-b-4 border-r-4 border-black dark:border-darkNavBorder p-4 text-xl font-heading cursor-pointer hover:bg-main-green" v-for="subject in subjects" :key="subject.name">{{ subject.name }}</li>
     </ul>
 </aside>
 </template>

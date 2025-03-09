@@ -4,7 +4,7 @@
   <section>
     <div class="w-full bg-white  border-black border-b-4 p-4 flex justify-between">
         <div>
-            <h1 class="text-7xl font-black">Sistemas Operativos</h1>
+            <h1 class="text-7xl font-black">Ingeniería de Sistemas</h1>
         </div>
 
         <div class="flex items-center justify-between text-2xl font-bold tracking-[1px] gap-4">
