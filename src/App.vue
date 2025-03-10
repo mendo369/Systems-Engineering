@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Header from './components/Header.vue'
 import Sidebar from './components/Sidebar.vue';
-import Syllabus from './components/Syllabus.vue'
+import Render from './components/Render.vue'
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import Syllabus from './components/Syllabus.vue'
     <Header></Header>
     <section class="flex overflow-hidden flex-auto">
       <Sidebar></Sidebar>
-      <Syllabus></Syllabus>
+      <Render></Render>
     </section>
   </section>
 
