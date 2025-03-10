@@ -59,3 +59,8 @@ html {
   overflow: hidden;
 }
 
+p, footer, h1, span{
+  font-family: monospace;
+}
+
+
