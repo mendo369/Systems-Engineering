@@ -1,15 +1,5 @@
 [
   {
-    "name": "Matemáticas Básicas",
-    "url": "",
-    "syllabus": [
-      {
-        "name": "",
-        "url":""
-      }
-    ]
-  },
-  {
     "name": "Sistemas Operativos",
     "url": "",
     "syllabus": [
@@ -19,6 +9,17 @@
       }
     ]
   },
+  {
+    "name": "Matemáticas Básicas",
+    "url": "",
+    "syllabus": [
+      {
+        "name": "",
+        "url":""
+      }
+    ]
+  },
+ 
   {
     "name": "Programación Imperativa",
     "url": "",
@@ -41,6 +42,96 @@
   },
   {
     "name": "Programación Concurrente",
+    "url": "",
+    "syllabus": [
+      {
+        "name": "",
+        "url":""
+      }
+    ]
+  },
+  {
+    "name": "Álgebra Lineal",
+    "url": "",
+    "syllabus": [
+      {
+        "name": "",
+        "url":""
+      }
+    ]
+  },
+  {
+    "name": "Física I",
+    "url": "",
+    "syllabus": [
+      {
+        "name": "",
+        "url":""
+      }
+    ]
+  },
+  {
+    "name": "Cálculo Monovariable",
+    "url": "",
+    "syllabus": [
+      {
+        "name": "",
+        "url":""
+      }
+    ]
+  },
+  {
+    "name": "Cálculo Multivariable",
+    "url": "",
+    "syllabus": [
+      {
+        "name": "",
+        "url":""
+      }
+    ]
+  },
+  {
+    "name": "Probabilidad y Estadística",
+    "url": "",
+    "syllabus": [
+      {
+        "name": "",
+        "url":""
+      }
+    ]
+  },
+  {
+    "name": "Ingeniería Económica",
+    "url": "",
+    "syllabus": [
+      {
+        "name": "",
+        "url":""
+      }
+    ]
+  },
+  {
+    "name": "Bases de Datos",
+    "url": "",
+    "syllabus": [
+      {
+        "name": "",
+        "url":""
+      }
+    ]
+  },
+  {
+    "name": "Matemáticas Discretas I",
+    "url": "",
+    "syllabus": [
+      {
+        "name": "",
+        "url":""
+      }
+    ]
+  },
+  {
+    "name": "Matemáticas Discretas II",
     "url": "",
     "syllabus": [
       {
