@@ -7,6 +7,7 @@ import Footer from './components/Footer.vue';
 import Benefits from './components/Benefits.vue';
 import Comments from './components/Comments.vue';
 import ComeOn from './components/ComeOn.vue';
+import Collaboration from './components/Collaboration.vue';
 </script>
 
 <template>
@@ -21,6 +22,7 @@ import ComeOn from './components/ComeOn.vue';
     <KnowledgeAreas></KnowledgeAreas>
     <Benefits></Benefits>
     <Comments></Comments>
+    <Collaboration></Collaboration>
     <ComeOn></ComeOn>
     <Footer></Footer>
   </div>
