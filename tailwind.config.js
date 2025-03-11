@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         main: {
-          green: "#a3e636b3",
+          green: "#a3e636",
         },
       },
       animation: {
