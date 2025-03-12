@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { useSubjectsStore } from '../store/subjects.store';
 
 const store = useSubjectsStore()
+const router= useRouter()
 
 const subjects = ref()
 
@@ -14,9 +16,9 @@ subjects.value=store.getAllSubjects
 
 <template>
   <aside class="w-[250px] h-full overflow-y-auto scrollbar bg-white border-r-4 border-black">
-      <ul class="flex flex-col">
-        <li class="block border-b-4 border-r-4 border-black dark:border-darkNavBorder p-4 text-2xl font-heading cursor-pointer hover:bg-main-green font-semibold" v-for="subject in subjects" :key="subject.name">{{ subject.name }}</li>
-    </ul>
+      <div class="flex flex-col">
+        <RouterLink class="block border-b-4 border-r-4   border-black dark:border-darkNavBorder p-4 text-2xl font-heading cursor-pointer hover:bg-main-green font-normal tracking-[1px]" v-for="subject in subjects" :key="subject.name" :to="subject.url">{{ subject.name }}</RouterLink>
+    </div>
 </aside>
 </template>
 
