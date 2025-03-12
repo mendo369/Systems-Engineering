@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
 
 // Lista de elementos a mostrar en el carrusel
 const items = [
