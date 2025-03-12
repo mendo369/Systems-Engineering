@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
 import { useSubjectsStore } from '../store/subjects.store';
 
 const store = useSubjectsStore()
-const router= useRouter()
 
 const subjects = ref()
 
