@@ -63,4 +63,8 @@ p, footer, h1, span{
   font-family: monospace;
 }
 
+.subject-view p{
+  font-size: 15px;
+}
+
 
