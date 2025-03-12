@@ -1,7 +1,7 @@
 [
   {
     "name": "Sistemas Operativos",
-    "url": "",
+    "url": "operating-systems",
     "syllabus": [
       {
         "name": "",
@@ -11,7 +11,7 @@
   },
   {
     "name": "Matemáticas Básicas",
-    "url": "",
+    "url": "test",
     "syllabus": [
       {
         "name": "",
@@ -22,7 +22,7 @@
  
   {
     "name": "Programación Imperativa",
-    "url": "",
+    "url": "test",
 
     "syllabus": [
       {
@@ -33,7 +33,7 @@
   },
   {
     "name": "Programación Orientada a Objetos",
-    "url": "",
+    "url": "objects-programming",
     "syllabus": [
       {
         "name": ""
@@ -42,7 +42,7 @@
   },
   {
     "name": "Programación Concurrente",
-    "url": "",
+    "url": "test",
     "syllabus": [
       {
         "name": "",
@@ -52,7 +52,7 @@
   },
   {
     "name": "Álgebra Lineal",
-    "url": "",
+    "url": "linear-algebra",
     "syllabus": [
       {
         "name": "",
@@ -62,7 +62,7 @@
   },
   {
     "name": "Física I",
-    "url": "",
+    "url": "test",
     "syllabus": [
       {
         "name": "",
@@ -72,7 +72,7 @@
   },
   {
     "name": "Cálculo Monovariable",
-    "url": "",
+    "url": "test",
     "syllabus": [
       {
         "name": "",
@@ -82,7 +82,7 @@
   },
   {
     "name": "Cálculo Multivariable",
-    "url": "",
+    "url": "test",
     "syllabus": [
       {
         "name": "",
@@ -92,7 +92,7 @@
   },
   {
     "name": "Probabilidad y Estadística",
-    "url": "",
+    "url": "test",
     "syllabus": [
       {
         "name": "",
@@ -102,7 +102,7 @@
   },
   {
     "name": "Ingeniería Económica",
-    "url": "",
+    "url": "test",
     "syllabus": [
       {
         "name": "",
@@ -112,7 +112,7 @@
   },
   {
     "name": "Bases de Datos",
-    "url": "",
+    "url": "test",
     "syllabus": [
       {
         "name": "",
@@ -122,7 +122,7 @@
   },
   {
     "name": "Matemáticas Discretas I",
-    "url": "",
+    "url": "test",
     "syllabus": [
       {
         "name": "",
@@ -132,7 +132,7 @@
   },
   {
     "name": "Matemáticas Discretas II",
-    "url": "",
+    "url": "test",
     "syllabus": [
       {
         "name": "",
