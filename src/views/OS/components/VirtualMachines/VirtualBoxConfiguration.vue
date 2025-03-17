@@ -55,13 +55,13 @@ function openInNewTab(url: string) {
           <li>
             <div>
               <p>Abrimos el programa y hacemos click en el icono de <span  class="font-semibold text-blue-400">Nueva</span>, o también puedes presionas <span class="font-semibold text-blue-400">Ctrl+N</span>.</p>
-              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-1.PNG" alt="" />
+              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-1.webp" alt="" />
             </div>
           </li>
           <li>
             <div>
               <p>Ahora en esta pestaña le asignamos un nombre a nuestra máquina virtual</p>
-              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-2.PNG" alt="" />
+              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-2.webp" alt="" />
             </div>
           </li>
           <li>
@@ -69,7 +69,7 @@ function openInNewTab(url: string) {
               <p>
                 Seleccionamos el tipo de sistema operativo
               </p>
-              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-3.PNG" alt="" />
+              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-3.webp" alt="" />
             </div>
           </li>
           <li>
@@ -77,7 +77,7 @@ function openInNewTab(url: string) {
               <p>
                 Seleccionamos el subtipo
               </p>
-              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-4.PNG" alt="" />
+              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-4.webp" alt="" />
             </div>
           </li>
           <li>
@@ -85,7 +85,7 @@ function openInNewTab(url: string) {
               <p>
                 Seleccionamos la versión
               </p>
-              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-5.PNG" alt="" />
+              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-5.webp" alt="" />
             </div>
           </li>
           <li>
@@ -93,7 +93,7 @@ function openInNewTab(url: string) {
               <p>
                 Ahora le damos click a <span class="font-semibold">Siguiente</span>
               </p>
-              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-6.PNG" alt="" />
+              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-6.webp" alt="" />
             </div>
           </li>
           <li>
@@ -101,7 +101,7 @@ function openInNewTab(url: string) {
               <p>
                 En esta sección le damos a la máquina virtual determinada cantidad de <span class="summary-link" @click="openInNewTab('https://www.xataka.com/basics/memoria-ram-que-sirve-como-mirar-cuanta-tiene-tu-ordenador-movil')">memoria</span> y <span class="summary-link" @click="openInNewTab('https://www.xataka.com/basics/memoria-ram-que-sirve-como-mirar-cuanta-tiene-tu-ordenador-movil')">procesadores</span> y le damos click a <span class="font-semibold">Siguiente</span>.
               </p>
-              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-7.PNG" alt="" />
+              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-7.webp" alt="" />
             </div>
           </li>
           <li>
@@ -109,7 +109,7 @@ function openInNewTab(url: string) {
               <p>
                 En esta sección le damos a la máquina virtual determinada cantidad de <span class="summary-link" @click="openInNewTab('https://www.purestorage.com/la/knowledge/what-is-computer-memory.html')">disco virtual</span> y le damos click a <span class="font-semibold">Siguiente</span>.
               </p>
-              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-8.PNG" alt="" />
+              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-8.webp" alt="" />
             </div>
           </li>
           <li>
@@ -117,7 +117,7 @@ function openInNewTab(url: string) {
               <p>
                 Y finalmente vermos una pestaña con la descrpción de las configuraciones de nuestra máquina y en caso de estar todo correcto, le damos click a <span class="font-semibold">Terminar</span>.
               </p>
-              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-9.PNG" alt="" />
+              <img src="@/assets/images/OperatingSystems/virtualbox-configuration-9.webp" alt="" />
             </div>
           </li>
         </ol>

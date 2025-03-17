@@ -59,13 +59,13 @@ function openInNewTab(url: string) {
           <li>
             <div>
               <p>Nos dirigimos al sitio oficial de Oracle VirtualBox</p>
-              <img src="@/assets/images/OperatingSystems/virtualbox-1.PNG" alt="" />
+              <img src="@/assets/images/OperatingSystems/virtualbox-1.webp" alt="" />
             </div>
           </li>
           <li>
             <div>
               <p>Vamos a la sección de descargas</p>
-              <img src="@/assets/images/OperatingSystems/virtualbox-2.PNG" alt="" />
+              <img src="@/assets/images/OperatingSystems/virtualbox-2.webp" alt="" />
             </div>
           </li>
           <li>
@@ -74,7 +74,7 @@ function openInNewTab(url: string) {
                 Seleccionamos la opción acorde al sistema operativo de nuestro
                 equipo
               </p>
-              <img src="@/assets/images/OperatingSystems/virtualbox-3.PNG" alt="" />
+              <img src="@/assets/images/OperatingSystems/virtualbox-3.webp" alt="" />
             </div>
           </li>
           <li>
@@ -83,7 +83,7 @@ function openInNewTab(url: string) {
                 Esperamos que termine la descarga y procedemos a ejecutar el
                 instalador
               </p>
-              <img src="@/assets/images/OperatingSystems/virtualbox-4.PNG" alt="" />
+              <img src="@/assets/images/OperatingSystems/virtualbox-4.webp" alt="" />
             </div>
           </li>
           <li>
@@ -91,7 +91,7 @@ function openInNewTab(url: string) {
               <p>
                 Una vez se ejecute el instalador le damos <span class="font-semibold">Next</span> a todo y esperamos a que finalice la instalación
               </p>
-              <img src="@/assets/images/OperatingSystems/virtualbox-5.PNG" alt="" />
+              <img src="@/assets/images/OperatingSystems/virtualbox-5.webp" alt="" />
             </div>
           </li>
         </ol>
