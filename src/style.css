@@ -67,4 +67,38 @@ p, footer, h1, span{
   font-size: 15px;
 }
 
+.section-title{
+  @apply w-full h-auto
+}
+
+.section-title h1{
+  @apply text-3xl before:content-['---'] after:content-['---']
+}
+
+.summary-link{
+  @apply text-blue-600 after:content-['_↗'] cursor-pointer;
+}
+
+ol{
+  padding-left: 1.4em;
+
+}
+
+ol li{
+  font-family: monospace;
+  font-size: 14px;
+}
+
+ol li div{
+  @apply flex flex-col
+}
+
+ol li div img{
+  @apply bg-slate-400 w-[560px] mx-auto my-4 transition-all duration-300 ease-in-out cursor-pointer;
+  aspect-ratio: 16/9;
+}
+ol li div img:hover{
+  @apply w-full;
+}
+
 
