@@ -4,7 +4,7 @@ import { RouterView } from "vue-router";
 
 <template>
   <section
-    class="w-full flex justify-center overflow-y-auto overflow-x-hidden h-full scrollbar-none"
+    class="w-full flex justify-center overflow-y-auto overflow-x-hidden h-full scrollbar-thin"
   >
     <router-view v-slot="{ Component }">
       <transition name="slide" mode="out-in">
@@ -15,8 +15,8 @@ import { RouterView } from "vue-router";
 </template>
 
 <style scoped>
-.scrollbar-none {
-  scrollbar-width: none;
+.scrollbar-thin {
+  scrollbar-width: thin;
 }
 
 .slide-enter-active,
