@@ -47,27 +47,58 @@ function openInNewTab(url: string) {
     </div>
     <div class="w-full bg-white border-t-2 border-black py-2 px-4">
       <p>
-        Una vez desargado e instalado el VirtualBox, es hora de crear una máquina virtual. A continuación verás una serie de pasoa para crear y configurar una máquina virtual.
+        Una vez desargado e instalado el VirtualBox, es hora de crear una máquina virtual. A continuación verás una serie de pasos para crear y configurar una máquina virtual. Para el ejemplo vamos a instalar el sistema operativo Linux Mint
       </p>
       <br />
       <div>
         <ol class="list-decimal">
           <li>
             <div>
-              <p>Abrimos el programa y hacemos click en el icono de <span  class="font-semibold text-blue-400">Nueva</span>, o también puedes presionas <span class="font-semibold text-blue-400">Ctrl+N</span>.</p>
+              <p>
+                Nos dirigimos al sitio oficial de descarga de
+                <span
+                  class="summary-link"
+                  @click="
+                    openInNewTab('https://www.linuxmint.com/download.php')
+                  "
+                  >Linux Mint</span
+                >, donde podemos escoger entre las versiones Cinnamon Edition,
+                Xfce Edition, MATE Edition. Ecoge la que mas se adapte para tus
+                necesidades.
+              </p>
+              <img
+                src="@/assets/images/OperatingSystems/virtualbox-1.webp"
+                alt=""
+              />
+            </div>
+          </li>
+          <li>
+            <div>
+              <p>
+                Ya seleccionada la versión bajamos al apartado Download mirrors y elegimos el ISO referente a nuestra ubicación Geográfica
+              </p>
+              <img
+                src="@/assets/images/OperatingSystems/mirrors.webp"
+                alt=""
+              />
+            </div>
+          </li>
+          <li>
+            <div>
+              <p>Abrimos el programa de virtualización (en nuestro caso, VirtaulBox) y hacemos click en el icono de <span  class="font-semibold text-blue-400">Nueva</span>, o también puedes presionas <span class="font-semibold text-blue-400">Ctrl+N</span>.</p>
               <img src="@/assets/images/OperatingSystems/virtualbox-configuration-1.webp" alt="" />
             </div>
           </li>
           <li>
             <div>
-              <p>Ahora en esta pestaña le asignamos un nombre a nuestra máquina virtual</p>
+              <p>Ahora en esta pestaña le asignamos un nombre a nuestra máquina virtual. Como dato adicional, VirtualBox te detecta el tipo de sistema que deseas instalar basado en el nombre que le pongas a la máquina virtual.</p>
               <img src="@/assets/images/OperatingSystems/virtualbox-configuration-2.webp" alt="" />
             </div>
           </li>
           <li>
             <div>
               <p>
-                Seleccionamos el tipo de sistema operativo
+                Seleccionamos el tipo de sistema operativo.
               </p>
               <img src="@/assets/images/OperatingSystems/virtualbox-configuration-3.webp" alt="" />
             </div>
@@ -75,7 +106,7 @@ function openInNewTab(url: string) {
           <li>
             <div>
               <p>
-                Seleccionamos el subtipo
+                Seleccionamos el subtipo.
               </p>
               <img src="@/assets/images/OperatingSystems/virtualbox-configuration-4.webp" alt="" />
             </div>
@@ -83,7 +114,7 @@ function openInNewTab(url: string) {
           <li>
             <div>
               <p>
-                Seleccionamos la versión
+                Seleccionamos la versión.
               </p>
               <img src="@/assets/images/OperatingSystems/virtualbox-configuration-5.webp" alt="" />
             </div>
@@ -91,7 +122,15 @@ function openInNewTab(url: string) {
           <li>
             <div>
               <p>
-                Ahora le damos click a <span class="font-semibold">Siguiente</span>
+                Añadimos la imagen ISO en donde la tengamos descargada, en nuestro caso es en la carpeta de DESCARGAS.
+              </p>
+              <img src="@/assets/images/OperatingSystems/captura.PNG" alt="" />
+            </div>
+          </li>
+          <li>
+            <div>
+              <p>
+                Ahora le damos click a "Omitir instalación desatendida" y le damos click a <span class="font-semibold">Siguiente</span>.
               </p>
               <img src="@/assets/images/OperatingSystems/virtualbox-configuration-6.webp" alt="" />
             </div>
@@ -115,7 +154,7 @@ function openInNewTab(url: string) {
           <li>
             <div>
               <p>
-                Y finalmente vermos una pestaña con la descrpción de las configuraciones de nuestra máquina y en caso de estar todo correcto, le damos click a <span class="font-semibold">Terminar</span>.
+                Y finalmente vermos una pestaña con la descrpición de las configuraciones de nuestra máquina y en caso de estar todo correcto, le damos click a <span class="font-semibold">Terminar</span>.
               </p>
               <img src="@/assets/images/OperatingSystems/virtualbox-configuration-9.webp" alt="" />
             </div>

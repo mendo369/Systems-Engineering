@@ -1,7 +1,17 @@
 <script setup lang="ts">
-import Introduction from './components/VirtualMachines/Introduction.vue';
+import IntroductionOS from './components/OperatingSystems/Introduction.vue';
+import Linux from './components/OperatingSystems/Linux.vue';
+import ArchLinux from './components/OperatingSystems/Linux/ArchLinux.vue';
+import Debian from './components/OperatingSystems/Linux/Debian.vue';
+import Gentoo from './components/OperatingSystems/Linux/Gentoo.vue';
+import RedHat from './components/OperatingSystems/Linux/RedHat.vue';
+import Suse from './components/OperatingSystems/Linux/Suse.vue';
+import Slackware from './components/OperatingSystems/Linux/Slackware.vue';
+import IntroductionVM from './components/VirtualMachines/Introduction.vue';
 import VirtaulBoxInstallation from './components/VirtualMachines/VirtaulBoxInstallation.vue';
 import VirtualBoxConfiguration from './components/VirtualMachines/VirtualBoxConfiguration.vue';
+import Families from './components/OperatingSystems/Families.vue';
+// import LinuxMintInsatallation from './components/VirtualMachines/LinuxMintInsatallation.vue';
 
 
 </script>
@@ -35,11 +45,27 @@ import VirtualBoxConfiguration from './components/VirtualMachines/VirtualBoxConf
     </div>
     <div class="w-full flex flex-col gap-6 pb-10">
       <div class="section-title">
+        <h1>Sistemas Operativos</h1>
+      </div>
+      <IntroductionOS></IntroductionOS>
+      <div class="section-title">
+        <h1>Linux</h1>
+      </div>
+      <Linux></Linux>
+      <Families></Families>
+      <ArchLinux></ArchLinux>
+      <Debian></Debian>
+      <Gentoo></Gentoo>
+      <RedHat></RedHat>
+      <Slackware></Slackware>
+      <Suse></Suse>
+      <div class="section-title">
         <h1>Maquinas Virtuales</h1>
       </div>
-      <Introduction></Introduction>
+      <IntroductionVM></IntroductionVM>
       <VirtaulBoxInstallation></VirtaulBoxInstallation>
       <VirtualBoxConfiguration></VirtualBoxConfiguration>
+      <!-- <LinuxMintInsatallation></LinuxMintInsatallation> -->
     </div>
   </section>
 </template>
