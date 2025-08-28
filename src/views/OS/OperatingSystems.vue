@@ -12,7 +12,13 @@ import VirtaulBoxInstallation from './components/VirtualMachines/VirtaulBoxInsta
 import VirtualBoxConfiguration from './components/VirtualMachines/VirtualBoxConfiguration.vue';
 import Families from './components/OperatingSystems/Families.vue';
 // import LinuxMintInsatallation from './components/VirtualMachines/LinuxMintInsatallation.vue';
-
+import Introduction from './components/OperatingSystems/LinuxMint/Introduction.vue';
+import HistoryAndEvolution from './components/OperatingSystems/LinuxMint/HistoryAndEvolution.vue';
+// import Conclusions from './components/OperatingSystems/LinuxMint/Conclusions.vue';
+import Demo from './components/OperatingSystems/LinuxMint/Demo.vue';
+import AdvantagesAndDisavantages from './components/OperatingSystems/LinuxMint/AdvantagesAndDisavantages.vue';
+import PrincipalUsages from './components/OperatingSystems/LinuxMint/PrincipalUsages.vue';
+import TechnicalCharasteristics from './components/OperatingSystems/LinuxMint/TechnicalCharasteristics.vue';
 
 </script>
 
@@ -66,6 +72,15 @@ import Families from './components/OperatingSystems/Families.vue';
       <VirtaulBoxInstallation></VirtaulBoxInstallation>
       <VirtualBoxConfiguration></VirtualBoxConfiguration>
       <!-- <LinuxMintInsatallation></LinuxMintInsatallation> -->
+      <div class="section-title">
+        <h1>Más Información De Las Distros</h1>
+      </div>
+      <Introduction></Introduction>
+      <HistoryAndEvolution></HistoryAndEvolution>
+      <TechnicalCharasteristics></TechnicalCharasteristics>
+      <PrincipalUsages></PrincipalUsages>
+      <AdvantagesAndDisavantages></AdvantagesAndDisavantages>
+      <Demo></Demo>
     </div>
   </section>
 </template>
