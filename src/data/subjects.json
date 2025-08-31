@@ -5,7 +5,7 @@
     "syllabus": [
       {
         "name": "",
-        "url":""
+        "url": ""
       }
     ]
   },
@@ -15,19 +15,64 @@
     "syllabus": [
       {
         "name": "",
-        "url":""
+        "url": ""
       }
     ]
   },
- 
+  {
+    "name": "ADA I",
+    "url": "ada-i",
+    "syllabus": [
+      {
+        "name": "Introducción al Análisis de Algoritmos",
+        "url": "algorithm-analysis",
+        "examples": [
+          {
+            "id": 1,
+            "title": "Algoritmo de Euclides para MCD",
+            "text": "Considere un algoritmo iterativo para calcular el máximo común divisor de dos números m,n:<br><br>● <strong>Defina sus entradas, salidas y proceso (pseudocódigo)</strong><br>● <strong>Es posible determinar mejor caso, peor caso y caso promedio ?</strong>",
+            "code": "// Algoritmo de Euclides para MCD\nfn gcd(mut a: u32, mut b: u32) -> u32 {\n    while b != 0 {\n        let temp = b;\n        b = a % b;\n        a = temp;\n    }\n    a\n}\n\n// Ejemplo de uso\nfn main() {\n    let result = gcd(48, 18);\n    println!(\"GCD(48, 18) = {}\", result); // Salida: GCD(48, 18) = 6\n}",
+            "language": "rust",
+            "showSolutionButton": true
+          }
+        ]
+      },
+      {
+        "name": "Orden de Crecimiento",
+        "url": "growth-order",
+        "examples": [
+          {
+            "id": 2,
+            "title": "Comparación de Algoritmos",
+            "text": "Supongamos que tenemos 4 algoritmos para resolver un mismo problema, los tiempos de ejecución de esos algoritmos son los siguientes:<br><br><ul><li><strong>A<sub>1</sub></strong> con T(n) = 200n</li><li><strong>A<sub>2</sub></strong> con T(n) = 6n<sup>2</sup></li><li><strong>A<sub>3</sub></strong> con T(n) = 3n<sup>3</sup>/2</li><li><strong>A<sub>4</sub></strong> con T(n) = 4log<sub>3</sub>n</li></ul><br>Teniendo en cuenta el orden de crecimiento de la función de tiempo de ejecución determinar la eficiencia de cada algoritmo.<br><br>Si dispone de 500 segundos para ejecutar cada algoritmo ¿Cuál es el tamaño máximo de la entrada que puede procesar cada uno? teniendo en cuenta una máquina que puede ejecutar 100 ins/segundo",
+            "code": "// Análisis de complejidad y cálculo del tamaño máximo de entrada\nfunction calculateMaxInputSize() {\n  const timeAvailable = 500; // segundos\n  const instructionsPerSecond = 100;\n  const maxInstructions = timeAvailable * instructionsPerSecond;\n  \n  console.log(`Máximo número de instrucciones: ${maxInstructions}`);\n  \n  // A1: T(n) = 200n\n  const nA1 = Math.floor(maxInstructions / 200);\n  console.log(`Tamaño máximo para A₁: ${nA1}`);\n  \n  // A2: T(n) = 6n²\n  const nA2 = Math.floor(Math.sqrt(maxInstructions / 6));\n  console.log(`Tamaño máximo para A₂: ${nA2}`);\n  \n  // A3: T(n) = 3n³/2\n  const nA3 = Math.floor(Math.cbrt((2 * maxInstructions) / 3));\n  console.log(`Tamaño máximo para A₃: ${nA3}`);\n  \n  // A4: T(n) = 4log₃(n)\n  // Resolviendo: 4 * log₃(n) ≤ maxInstructions\n  // log₃(n) ≤ maxInstructions / 4\n  // n ≤ 3^(maxInstructions / 4)\n  const nA4 = Math.floor(Math.pow(3, maxInstructions / 4));\n  console.log(`Tamaño máximo para A₄: ${nA4}`);\n}\n\ncalculateMaxInputSize();",
+            "language": "rust",
+            "showSolutionButton": false
+          },
+          {
+            "id": 3,
+            "title": "Caja fuerte con giros",
+            "text": "Tus ahorros de toda la vida han quedado atrapados en una caja fuerte y has olvidado la combinación. La caja tiene una rueda con los números del 1 al 5 en orden inicial <strong>1 2 3 4 5</strong>. Puedes girar la rueda hacia la <strong>izquierda</strong> o hacia la <strong>derecha</strong> una cantidad de veces.<br><br>Si giras una posición hacia la izquierda, el orden será <strong>2 3 4 5 1</strong>. Si giras una posición hacia la derecha, el orden será <strong>5 1 2 3 4</strong>.<br><br>Escribe un programa que, dadas la cantidad de rotaciones hacia la izquierda y hacia la derecha, determine el orden final de los números.<br><br><strong>Ejemplo:</strong><br>Entrada → (1,0) → Salida → 2 3 4 5 1<br>Entrada → (2,0) → Salida → 3 4 5 1 2",
+            "code": "// Programa en Rust: Caja fuerte con giros\nfn rotate_safe(left: i32, right: i32) -> Vec<i32> {\n    let mut nums = vec![1, 2, 3, 4, 5];\n    let len = nums.len() as i32;\n\n    // Efecto neto de los movimientos (izquierda positivo, derecha negativo)\n    let net_moves = (left - right).rem_euclid(len);\n\n    // Rotamos según el net_moves\n    nums.rotate_left(net_moves as usize);\n    nums\n}\n\nfn main() {\n    let result1 = rotate_safe(1, 0);\n    println!(\"Entrada (1,0) -> Salida -> {:?}\", result1);\n\n    let result2 = rotate_safe(2, 0);\n    println!(\"Entrada (2,0) -> Salida -> {:?}\", result2);\n\n    let result3 = rotate_safe(0, 1);\n    println!(\"Entrada (0,1) -> Salida -> {:?}\", result3);\n\n    let result4 = rotate_safe(3, 1);\n    println!(\"Entrada (3,1) -> Salida -> {:?}\", result4);\n}\n",
+            "language": "rust",
+            "showSolutionButton": true
+          }
+        ]
+      },
+      {
+        "name": "Notación Asintótica",
+        "url": "asymptotic-notation",
+        "examples": []
+      }
+    ]
+  },
   {
     "name": "Programación Imperativa",
     "url": "test",
-
     "syllabus": [
       {
         "name": "",
-        "url":""
+        "url": ""
       }
     ]
   },
@@ -46,7 +91,7 @@
     "syllabus": [
       {
         "name": "",
-        "url":""
+        "url": ""
       }
     ]
   },
@@ -56,7 +101,7 @@
     "syllabus": [
       {
         "name": "",
-        "url":""
+        "url": ""
       }
     ]
   },
@@ -66,7 +111,7 @@
     "syllabus": [
       {
         "name": "",
-        "url":""
+        "url": ""
       }
     ]
   },
@@ -76,7 +121,7 @@
     "syllabus": [
       {
         "name": "",
-        "url":""
+        "url": ""
       }
     ]
   },
@@ -86,7 +131,7 @@
     "syllabus": [
       {
         "name": "",
-        "url":""
+        "url": ""
       }
     ]
   },
@@ -96,7 +141,7 @@
     "syllabus": [
       {
         "name": "",
-        "url":""
+        "url": ""
       }
     ]
   },
@@ -106,7 +151,7 @@
     "syllabus": [
       {
         "name": "",
-        "url":""
+        "url": ""
       }
     ]
   },
@@ -116,7 +161,7 @@
     "syllabus": [
       {
         "name": "",
-        "url":""
+        "url": ""
       }
     ]
   },
@@ -126,7 +171,7 @@
     "syllabus": [
       {
         "name": "",
-        "url":""
+        "url": ""
       }
     ]
   },
@@ -136,7 +181,7 @@
     "syllabus": [
       {
         "name": "",
-        "url":""
+        "url": ""
       }
     ]
   }
