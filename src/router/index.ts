@@ -14,6 +14,12 @@ const routes: RouteRecordRaw[] = [
     component: () => import("../views/OS/OperatingSystems.vue"),
   },
   {
+    path: "/ada-i",
+    name: "ada-i",
+    meta: { transition: 'slide-left' },
+    component: () => import("../views/ADA/ADA.vue"),
+  },
+  {
     path: "/events-programming",
     name: "events-programming",
     component: () => import("../views/EventsProgramming/EventsProgramming.vue"),
