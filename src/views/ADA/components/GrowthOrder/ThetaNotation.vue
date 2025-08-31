@@ -1,0 +1,77 @@
+<script setup lang="ts">
+</script>
+
+<template>
+  <div
+    class="w-full h-auto border-black border-2 rounded-base border-border shadow-nav dark:shadow-navDark dark:border-darkBorder shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+  >
+    <!-- Header -->
+    <div class="bg-black py-2 px-4 w-full flex items-center">
+      <span
+        class="text-xl flex items-center w-full gap-1 font-semibold text-main-green"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-terminal h-4 w-4 text-main-green"
+        >
+          <polyline points="4 17 10 11 4 5"></polyline>
+          <line x1="12" x2="20" y1="19" y2="19"></line>
+        </svg>
+        Notación Θ
+      </span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="white"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-chevron-down h-5 w-5 shrink-0 transition-transform duration-200"
+      >
+        <path d="m6 9 6 6 6-6"></path>
+      </svg>
+    </div>
+
+    <div class="w-full bg-white border-t-2 border-black py-4 px-6 space-y-4">
+      <div class="flex justify-center">
+        <img
+          src="@/assets/images/ADA-I/notation-theta.png"
+          alt="Notación Θ"
+          class="rounded-md border border-black max-h-64"
+        />
+      </div>
+
+      <div class="space-y-2 text-gray-900">
+        <p>
+          <strong>Definición:</strong> Θ(g(n)) = { f(n) : Existen constantes
+          positivas c₁, c₂ y n₀ tales que
+        </p>
+        <p class="pl-6">
+          0 ≤ c₁g(n) ≤ f(n) ≤ c₂g(n), para todo n ≥ n₀
+        </p>
+
+        <p class="mt-3">
+          <strong>Ejemplo:</strong> Encontrar los valores de <em>c₁</em>,
+          <em>c₂</em> y <em>n₀</em> para la siguiente función:
+        </p>
+
+        <p class="text-center font-semibold">
+          f(n) = (n² / 2) - (n / 2)
+        </p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped></style>
