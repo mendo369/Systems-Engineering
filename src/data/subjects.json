@@ -10,12 +10,36 @@
     ]
   },
   {
-    "name": "Matemáticas Básicas",
-    "url": "test",
+    "name": "Simulación y Computación Numérica",
+    "url": "simulation-numerical-computing",
     "syllabus": [
       {
-        "name": "",
-        "url": ""
+        "name": "Teorema de Bolzano",
+        "url": "bolzano-theorem",
+        "examples": [
+          {
+            "id": 1,
+            "title": "Verificación del Teorema de Bolzano en Rust",
+            "text": "Implementar una función que verifique el Teorema de Bolzano para diferentes funciones y intervalos.<br><br>● Verificar la continuidad y cambio de signo<br>● Encontrar intervalos donde se cumple el teorema<br>● Visualizar gráficamente los resultados",
+            "code": "// Teorema de Bolzano en Rust\n\n// Funciones de prueba\nfn funcion_1(x: f64) -> f64 {\n    x * x - 2.0  // f(x) = x² - 2\n}\n\nfn funcion_2(x: f64) -> f64 {\n    x * x * x - x - 2.0  // f(x) = x³ - x - 2\n}\n\nfn funcion_3(x: f64) -> f64 {\n    f64::sin(x) - x / 2.0  // f(x) = sin(x) - x/2\n}\n\nfn funcion_4(x: f64) -> f64 {\n    f64::exp(x) - 3.0 * x  // f(x) = e^x - 3x\n}\n\n// Verificar Teorema de Bolzano\nfn verificar_bolzano<F>(f: F, a: f64, b: f64) -> bool\nwhere\n    F: Fn(f64) -> f64,\n{\n    let fa = f(a);\n    let fb = f(b);\n    \n    // Teorema de Bolzano: f(a) × f(b) < 0\n    fa * fb < 0.0\n}\n\n// Buscar intervalo donde se cumple Bolzano (método de exploración)\nfn buscar_intervalo_bolzano<F>(f: F, inicio: f64, fin: f64, paso: f64) -> Option<(f64, f64)>\nwhere\n    F: Fn(f64) -> f64,\n{\n    let mut x = inicio;\n    \n    while x < fin {\n        let a = x;\n        let b = x + paso;\n        \n        if verificar_bolzano(&f, a, b) {\n            return Some((a, b));\n        }\n        \n        x += paso;\n    }\n    \n    None\n}\n\n// Verificar continuidad numérica (simple check)\nfn es_continua<F>(f: F, a: f64, b: f64, num_puntos: usize) -> bool\nwhere\n    F: Fn(f64) -> f64,\n{\n    let paso = (b - a) / (num_puntos as f64);\n    let mut x = a;\n    \n    // Verificar que no hay discontinuidades obvias (valores infinitos o NaN)\n    for _ in 0..num_puntos {\n        let valor = f(x);\n        if valor.is_infinite() || valor.is_nan() {\n            return false;\n        }\n        x += paso;\n    }\n    \n    true\n}\n\nfn main() {\n    println!(\"=== Verificación del Teorema de Bolzano ===\\n\");\n    \n    // Prueba 1: f(x) = x² - 2 en [1, 2]\n    let a1 = 1.0;\n    let b1 = 2.0;\n    let continua1 = es_continua(funcion_1, a1, b1, 100);\n    let bolzano1 = verificar_bolzano(funcion_1, a1, b1);\n    \n    println!(\"Función 1: f(x) = x² - 2\");\n    println!(\"Intervalo: [{}, {}]\", a1, b1);\n    println!(\"f({}) = {:.4}\", a1, funcion_1(a1));\n    println!(\"f({}) = {:.4}\", b1, funcion_1(b1));\n    println!(\"Continua: {}\", continua1);\n    println!(\"Cumple Bolzano: {}\", bolzano1);\n    println!(\"Teorema aplicable: {}\", continua1 && bolzano1);\n    \n    if continua1 && bolzano1 {\n        println!(\"→ Existe al menos una raíz en ({}, {})\", a1, b1);\n    }\n    println!();\n    \n    // Prueba 2: f(x) = x³ - x - 2\n    let a2 = 1.0;\n    let b2 = 2.0;\n    let continua2 = es_continua(funcion_2, a2, b2, 100);\n    let bolzano2 = verificar_bolzano(funcion_2, a2, b2);\n    \n    println!(\"Función 2: f(x) = x³ - x - 2\");\n    println!(\"Intervalo: [{}, {}]\", a2, b2);\n    println!(\"f({}) = {:.4}\", a2, funcion_2(a2));\n    println!(\"f({}) = {:.4}\", b2, funcion_2(b2));\n    println!(\"Continua: {}\", continua2);\n    println!(\"Cumple Bolzano: {}\", bolzano2);\n    println!(\"Teorema aplicable: {}\", continua2 && bolzano2);\n    \n    if continua2 && bolzano2 {\n        println!(\"→ Existe al menos una raíz en ({}, {})\", a2, b2);\n    }\n    println!();\n    \n    // Prueba 3: f(x) = sin(x) - x/2\n    let a3 = 1.0;\n    let b3 = 3.0;\n    let continua3 = es_continua(funcion_3, a3, b3, 100);\n    let bolzano3 = verificar_bolzano(funcion_3, a3, b3);\n    \n    println!(\"Función 3: f(x) = sin(x) - x/2\");\n    println!(\"Intervalo: [{}, {}]\", a3, b3);\n    println!(\"f({}) = {:.4}\", a3, funcion_3(a3));\n    println!(\"f({}) = {:.4}\", b3, funcion_3(b3));\n    println!(\"Continua: {}\", continua3);\n    println!(\"Cumple Bolzano: {}\", bolzano3);\n    println!(\"Teorema aplicable: {}\", continua3 && bolzano3);\n    \n    if continua3 && bolzano3 {\n        println!(\"→ Existe al menos una raíz en ({}, {})\", a3, b3);\n    }\n    println!();\n    \n    // Prueba 4: Buscar intervalo automáticamente\n    println!(\"=== Búsqueda Automática de Intervalos ===\");\n    \n    match buscar_intervalo_bolzano(funcion_1, -5.0, 5.0, 0.5) {\n        Some((a, b)) => {\n            println!(\"Función 1: Intervalo encontrado [{}, {}]\", a, b);\n            println!(\"f({}) = {:.4}, f({}) = {:.4}\", a, funcion_1(a), b, funcion_1(b));\n        },\n        None => println!(\"Función 1: No se encontró intervalo con Bolzano en [-5, 5]\"),\n    }\n    \n    match buscar_intervalo_bolzano(funcion_4, -2.0, 2.0, 0.5) {\n        Some((a, b)) => {\n            println!(\"Función 4: Intervalo encontrado [{}, {}]\", a, b);\n            println!(\"f({}) = {:.4}, f({}) = {:.4}\", a, funcion_4(a), b, funcion_4(b));\n        },\n        None => println!(\"Función 4: No se encontró intervalo con Bolzano en [-2, 2]\"),\n    }\n}",
+            "language": "rust",
+            "showSolutionButton": true
+          }
+        ]
+      },
+      {
+        "name": "Método de Bisección",
+        "url": "bisection-method",
+        "examples": [
+          {
+            "id": 1,
+            "title": "Implementación del Método de Bisección en Rust",
+            "text": "Implementar el método de bisección para encontrar la raíz de f(x) = x² - 2 en el intervalo [1, 2].<br><br>● Definir la función objetivo<br>● Implementar el algoritmo de bisección<br>● Probar con diferentes tolerancias",
+            "code": "// Método de Bisección en Rust\n\n// Función objetivo: f(x) = x² - 2\nfn funcion_objetivo(x: f64) -> f64 {\n    x * x - 2.0\n}\n\n// Método de bisección\nfn biseccion<F>(f: F, mut a: f64, mut b: f64, tolerancia: f64, max_iter: usize) -> Option<(f64, usize)>\nwhere\n    F: Fn(f64) -> f64,\n{\n    let mut fa = f(a);\n    let mut fb = f(b);\n    \n    // Verificar condición de Bolzano\n    if fa * fb >= 0.0 {\n        println!(\"No se cumple la condición f(a) × f(b) < 0\");\n        return None;\n    }\n    \n    for iter in 0..max_iter {\n        let c = (a + b) / 2.0;\n        let fc = f(c);\n        \n        // Verificar convergencia\n        if fc.abs() < tolerancia || (b - a) / 2.0 < tolerancia {\n            return Some((c, iter + 1));\n        }\n        \n        // Actualizar intervalo\n        if fa * fc < 0.0 {\n            b = c;\n            fb = fc;\n        } else {\n            a = c;\n            fa = fc;\n        }\n    }\n    \n    println!(\"No se alcanzó convergencia en {} iteraciones\", max_iter);\n    None\n}\n\nfn main() {\n    let a = 1.0;\n    let b = 2.0;\n    let tolerancia = 1e-6;\n    let max_iter = 100;\n    \n    println!(\"Buscando raíz de f(x) = x² - 2 en [{}, {}]\", a, b);\n    println!(\"Tolerancia: {}\", tolerancia);\n    \n    match biseccion(funcion_objetivo, a, b, tolerancia, max_iter) {\n        Some((raiz, iteraciones)) => {\n            println!(\"Raíz encontrada: {:.8}\", raiz);\n            println!(\"Iteraciones: {}\", iteraciones);\n            println!(\"Verificación: f({:.8}) = {:.8}\", raiz, funcion_objetivo(raiz));\n        },\n        None => println!(\"No se pudo encontrar la raíz\"),\n    }\n    \n    // Prueba con diferentes tolerancias\n    println!(\"\\n=== Pruebas con diferentes tolerancias ===\");\n    let tolerancias = [1e-3, 1e-6, 1e-9, 1e-12];\n    \n    for &tol in &tolerancias {\n        if let Some((raiz, iter)) = biseccion(funcion_objetivo, a, b, tol, max_iter) {\n            println!(\"Tol: {:.0e} → Raíz: {:.10} ({} iter)\", tol, raiz, iter);\n        }\n    }\n}",
+            "language": "rust",
+            "showSolutionButton": true
+          }
+        ]
       }
     ]
   },

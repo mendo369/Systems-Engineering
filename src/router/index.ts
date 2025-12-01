@@ -14,6 +14,12 @@ const routes: RouteRecordRaw[] = [
     component: () => import("../views/OS/OperatingSystems.vue"),
   },
   {
+    path: "/simulation-numerical-computing",
+    name: "simulation-numerical-computing",
+    meta: { transition: 'slide-left' },
+    component: () => import("../views/Simulation/Simulation.vue"),
+  },
+  {
     path: "/ada-i",
     name: "ada-i",
     meta: { transition: 'slide-left' },
