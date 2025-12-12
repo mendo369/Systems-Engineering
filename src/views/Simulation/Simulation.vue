@@ -1,12 +1,18 @@
+<!-- src/views/simulation/SimulationNumericalComputingView.vue -->
 <script setup lang="ts">
 import { useSubjectsStore } from "@/store/subjects.store";
-import Question from "@/components/shared/Question.vue";
 import Introduction from "./components/Introduction.vue";
 import TaylorSeries from "./components/TaylorSeries.vue";
 import ErrorTheory from "./components/ErrorTheory.vue";
 import NonLinearEquations from "./components/NonLinearEquations.vue";
 import BolzanoTheorem from "./components/BolzanoTheorem.vue";
 import BisectionMethod from "./components/BisectionMethod.vue";
+// Importa los nuevos componentes
+import Interpolation from "./components/Interpolation.vue";
+import LeastSquares from "./components/LeastSquares.vue";
+import SystemOfEquations from "./components/SystemOfEquations.vue";
+import FiniteDifferenceMethod from "./components/FiniteDifferenceMethod.vue";
+import Question from "@/components/shared/Question.vue";
 
 const subjectsStore = useSubjectsStore();
 
@@ -18,6 +24,24 @@ const bolzanoTheoremExample = subjectsStore.getExamples(
 const bisectionMethodExample = subjectsStore.getExamples(
   "simulation-numerical-computing",
   "bisection-method"
+);
+
+// Ejemplos para los nuevos componentes
+const interpolationExample = subjectsStore.getExamples(
+  "simulation-numerical-computing",
+  "interpolation"
+);
+const leastSquaresExample = subjectsStore.getExamples(
+  "simulation-numerical-computing",
+  "least-squares"
+);
+const systemOfEquationsExample = subjectsStore.getExamples(
+  "simulation-numerical-computing",
+  "system-of-equations"
+);
+const finiteDifferenceMethodExample = subjectsStore.getExamples(
+  "simulation-numerical-computing",
+  "finite-difference-method"
 );
 </script>
 
@@ -100,6 +124,66 @@ const bisectionMethodExample = subjectsStore.getExamples(
       :code="bisectionMethodExample[0].code"
       :show-solution-button="bisectionMethodExample[0].showSolutionButton"
       :language="bisectionMethodExample[0].language"
+    ></Question>
+
+    <!-- NUEVAS SECCIONES AÑADIDAS AL FINAL -->
+
+    <!-- Sección 5: Interpolación -->
+    <div class="section-title">
+      <h1>Interpolación</h1>
+    </div>
+    <Interpolation></Interpolation>
+
+    <!-- Ejemplo de código -->
+    <Question
+      :text="interpolationExample[0]?.text"
+      :code="interpolationExample[0]?.code"
+      :show-solution-button="interpolationExample[0]?.showSolutionButton"
+      :language="interpolationExample[0]?.language"
+    ></Question>
+
+    <!-- Sección 6: Aproximación por Mínimos Cuadrados -->
+    <div class="section-title">
+      <h1>Aproximación por Mínimos Cuadrados</h1>
+    </div>
+    <LeastSquares></LeastSquares>
+
+    <!-- Ejemplo de código -->
+    <Question
+      :text="leastSquaresExample[0]?.text"
+      :code="leastSquaresExample[0]?.code"
+      :show-solution-button="leastSquaresExample[0]?.showSolutionButton"
+      :language="leastSquaresExample[0]?.language"
+    ></Question>
+
+    <!-- Sección 7: Sistemas de Ecuaciones -->
+    <div class="section-title">
+      <h1>Sistemas de Ecuaciones Lineales y No Lineales</h1>
+    </div>
+    <SystemOfEquations></SystemOfEquations>
+
+    <!-- Ejemplo de código -->
+    <Question
+      :text="systemOfEquationsExample[0]?.text"
+      :code="systemOfEquationsExample[0]?.code"
+      :show-solution-button="systemOfEquationsExample[0]?.showSolutionButton"
+      :language="systemOfEquationsExample[0]?.language"
+    ></Question>
+
+    <!-- Sección 8: Apuntes MDF -->
+    <div class="section-title">
+      <h1>Método de Diferencias Finitas (MDF) para PVF</h1>
+    </div>
+    <FiniteDifferenceMethod></FiniteDifferenceMethod>
+
+    <!-- Ejemplo de código -->
+    <Question
+      :text="finiteDifferenceMethodExample[0]?.text"
+      :code="finiteDifferenceMethodExample[0]?.code"
+      :show-solution-button="
+        finiteDifferenceMethodExample[0]?.showSolutionButton
+      "
+      :language="finiteDifferenceMethodExample[0]?.language"
     ></Question>
   </section>
 </template>

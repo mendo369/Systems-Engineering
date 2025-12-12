@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import Code from './Code.vue'
+import { ref } from "vue";
+import Code from "./Code.vue";
 
 const props = defineProps<{
-  text: string
-  code: string
-  language: string
-  showSolutionButton: boolean
-}>()
+  text: string;
+  code: string;
+  language: string;
+  showSolutionButton: boolean;
+}>();
 
-const showSolution = ref(false)
-
+const showSolution = ref(false);
 </script>
 
 <template>
@@ -57,20 +56,17 @@ const showSolution = ref(false)
         </svg>
       </div>
       <div class="w-full bg-white border-t-2 border-black py-2 px-4">
-        <p class="text-sm leading-relaxed" v-html="text"></p>
+        <p class="text-sm leading-relaxed" v-html="props.text"></p>
         <div class="mt-3" v-if="showSolutionButton">
-          <button 
+          <button
             @click="showSolution = !showSolution"
             class="bg-main-green hover:bg-green-600 text-black font-semibold py-2 px-4 rounded transition-colors"
           >
-            {{ showSolution ? 'Ocultar solución' : 'Ver posible solución' }}
+            {{ showSolution ? "Ocultar solución" : "Ver posible solución" }}
           </button>
-          
+
           <div v-if="showSolution" class="mt-3">
-            <Code 
-              :language="language" 
-              :code="code"
-            ></Code>
+            <Code :language="props.language" :code="props.code"></Code>
           </div>
         </div>
       </div>

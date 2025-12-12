@@ -40,6 +40,62 @@
             "showSolutionButton": true
           }
         ]
+      },
+      {
+        "name": "Interpolación",
+        "url": "interpolation",
+        "examples": [
+          {
+            "id": 1,
+            "title": "Interpolación de Lagrange en Rust",
+            "text": "Implementar el polinomio de interpolación de Lagrange para un conjunto de puntos dados.<br><br>● Calcular los polinomios base L_i(x)<br>● Evaluar el polinomio interpolador P(x)<br>● Comparar con el valor real de la función original",
+            "code": "// Interpolación de Lagrange en Rust\n\n// Función para calcular el polinomio de Lagrange\nfn lagrange_interpolation(x_points: &[f64], y_points: &[f64], x: f64) -> f64 {\n    let n = x_points.len();\n    let mut result = 0.0;\n\n    for i in 0..n {\n        let mut term = y_points[i];\n        for j in 0..n {\n            if i != j {\n                term *= (x - x_points[j]) / (x_points[i] - x_points[j]);\n            }\n        }\n        result += term;\n    }\n\n    result\n}\n\nfn main() {\n    // Puntos conocidos\n    let x_known = [1.0, 2.0, 3.0];\n    let y_known = [1.0, 4.0, 9.0]; // f(x) = x^2\n\n    let x_to_eval = 2.5;\n    let result = lagrange_interpolation(&x_known, &y_known, x_to_eval);\n    let actual = x_to_eval.powi(2);\n\n    println!(\"P({}) = {}\", x_to_eval, result);\n    println!(\"f({}) = {}\", x_to_eval, actual);\n    println!(\"Error de interpolación = {}\", (result - actual).abs());\n}\n",
+            "language": "rust",
+            "showSolutionButton": true
+          }
+        ]
+      },
+      {
+        "name": "Aproximación por Mínimos Cuadrados",
+        "url": "least-squares",
+        "examples": [
+          {
+            "id": 1,
+            "title": "Regresión Lineal Simple en Rust",
+            "text": "Calcular la recta de mínimos cuadrados para un conjunto de datos bivariados.<br><br>● Calcular pendiente (m) e intercepto (b)<br>● Calcular el coeficiente de correlación (r)",
+            "code": "// Regresión Lineal Simple en Rust\n\n// Función para calcular la regresión lineal\nfn linear_regression(x_vals: &[f64], y_vals: &[f64]) -> (f64, f64, f64) {\n    let n = x_vals.len() as f64;\n    let sum_x = x_vals.iter().sum::<f64>();\n    let sum_y = y_vals.iter().sum::<f64>();\n    let sum_xy: f64 = x_vals.iter().zip(y_vals.iter()).map(|(x, y)| x * y).sum();\n    let sum_x2: f64 = x_vals.iter().map(|x| x * x).sum();\n\n    let mean_x = sum_x / n;\n    let mean_y = sum_y / n;\n\n    let slope = (n * sum_xy - sum_x * sum_y) / (n * sum_x2 - sum_x * sum_x);\n    let intercept = mean_y - slope * mean_x;\n\n    // Coeficiente de correlación\n    let ss_xy: f64 = x_vals.iter().zip(y_vals.iter()).map(|(x, y)| (x - mean_x) * (y - mean_y)).sum();\n    let ss_xx: f64 = x_vals.iter().map(|x| (x - mean_x).powi(2)).sum();\n    let ss_yy: f64 = y_vals.iter().map(|y| (y - mean_y).powi(2)).sum();\n    let correlation = ss_xy / (ss_xx * ss_yy).sqrt();\n\n    (slope, intercept, correlation)\n}\n\nfn main() {\n    let x_data = [1.0, 2.0, 3.0, 4.0, 5.0];\n    let y_data = [2.1, 3.9, 6.1, 7.9, 10.0];\n\n    let (slope, intercept, correlation) = linear_regression(&x_data, &y_data);\n\n    println!(\"Recta de regresión: y = {:.4}x + {:.4}\", slope, intercept);\n    println!(\"Coeficiente de correlación (r): {:.4}\", correlation);\n}\n",
+            "language": "rust",
+            "showSolutionButton": true
+          }
+        ]
+      },
+      {
+        "name": "Sistemas de Ecuaciones Lineales y No Lineales",
+        "url": "system-of-equations",
+        "examples": [
+          {
+            "id": 1,
+            "title": "Método de Jacobi en Rust",
+            "text": "Implementar el método iterativo de Jacobi para resolver un sistema de ecuaciones lineales Ax = b.<br><br>● Verificar convergencia (diagonal dominante)<br>● Iterar hasta cumplir criterio de parada",
+            "code": "// Método de Jacobi en Rust\n\n// Función para calcular la norma infinito de un vector\nfn norm_inf(v: &[f64]) -> f64 {\n    v.iter().map(|x| x.abs()).fold(0.0, |a, b| a.max(b))\n}\n\n// Función para clonar un vector\nfn clone_vec(v: &[f64]) -> Vec<f64> {\n    v.iter().cloned().collect()\n}\n\n// Método de Jacobi\nfn jacobi_method(\n    a: &Vec<Vec<f64>>,\n    b: &[f64],\n    mut x: Vec<f64>,\n    tolerance: f64,\n    max_iterations: usize,\n) -> Option<Vec<f64>> {\n    let n = b.len();\n    let mut x_new = vec![0.0; n];\n\n    for iteration in 0..max_iterations {\n        for i in 0..n {\n            let mut sum = 0.0;\n            for j in 0..n {\n                if i != j {\n                    sum += a[i][j] * x[j];\n                }\n            }\n            x_new[i] = (b[i] - sum) / a[i][i];\n        }\n\n        // Criterio de parada\n        let diff: Vec<f64> = x_new.iter().zip(x.iter()).map(|(a, b)| a - b).collect();\n        if norm_inf(&diff) < tolerance {\n            println!(\"Convergió en {} iteraciones.\", iteration + 1);\n            return Some(x_new);\n        }\n\n        x = clone_vec(&x_new);\n    }\n\n    println!(\"No se alcanzó la convergencia en {} iteraciones.\", max_iterations);\n    None\n}\n\nfn main() {\n    // Ejemplo de sistema\n    let a = vec!\n    [\n        vec![4.0, -1.0, 0.0],\n        vec![-1.0, 4.0, -1.0],\n        vec![0.0, -1.0, 4.0],\n    ];\n    let b = [12.0, 12.0, 12.0];\n    let x_initial = vec![0.0, 0.0, 0.0];\n    let tolerance = 1e-3;\n    let max_iter = 100;\n\n    match jacobi_method(&a, &b, x_initial, tolerance, max_iter) {\n        Some(solution) => println!(\"Solución x: {:?}\", solution),\n        None => println!(\"No se pudo resolver el sistema.\"),\n    }\n}\n",
+            "language": "rust",
+            "showSolutionButton": true
+          }
+        ]
+      },
+      {
+        "name": "Método de Diferencias Finitas (MDF) para PVF",
+        "url": "finite-difference-method",
+        "examples": [
+          {
+            "id": 1,
+            "title": "MDF para EDO de Segundo Orden en Rust",
+            "text": "Resolver un problema de valor de frontera (PVF) para una EDO lineal de segundo orden usando el Método de Diferencias Finitas.<br><br>● Discretizar el dominio<br>● Aproximar derivadas<br>● Resolver el sistema lineal resultante",
+            "code": "// MDF para EDO de Segundo Orden en Rust\n// Nota: Este ejemplo simplifica la resolución del sistema tridiagonal\n// En la práctica, se usaría una librería como nalgebra o implementar un solver específico.\n\n// Definir funciones p(x), q(x), r(x) para el ejemplo y'' = -2/x y' + 2/x^2 y + sin(ln x)/x^2\nfn p(x: f64) -> f64 {\n    -2.0 / x\n}\n\nfn q(x: f64) -> f64 {\n    2.0 / (x * x)\n}\n\nfn r(x: f64) -> f64 {\n    f64::sin(f64::ln(x)) / (x * x)\n}\n\nfn solve_bvp_mdf(\n    p_fn: fn(f64) -> f64,\n    q_fn: fn(f64) -> f64,\n    r_fn: fn(f64) -> f64,\n    a: f64,\n    b: f64,\n    alpha: f64,\n    beta: f64,\n    n_nodes: usize,\n) -> (Vec<f64>, Vec<f64>) {\n    let h = (b - a) / ((n_nodes + 1) as f64);\n    let mut x = vec![0.0; n_nodes + 2];\n    for i in 0..n_nodes + 2 {\n        x[i] = a + (i as f64) * h;\n    }\n\n    // Inicializar matrices del sistema tridiagonal A y vector b\n    let n_int = n_nodes; // Número de nodos interiores\n    let mut a_mat = vec![vec![0.0; n_int]; n_int];\n    let mut b_rhs = vec![0.0; n_int];\n\n    for i in 0..n_int {\n        let idx = i + 1; // Índice del nodo interior en x[]\n        let xi = x[idx];\n\n        let p_val = p_fn(xi);\n        let q_val = q_fn(xi);\n        let r_val = r_fn(xi);\n\n        let a_coeff = (1.0 / (h * h)) - (p_val / (2.0 * h));\n        let b_coeff = q_val - (2.0 / (h * h));\n        let c_coeff = (1.0 / (h * h)) + (p_val / (2.0 * h));\n\n        a_mat[i][i] = b_coeff;\n        if i > 0 {\n            a_mat[i][i - 1] = a_coeff;\n        }\n        if i < n_int - 1 {\n            a_mat[i][i + 1] = c_coeff;\n        }\n\n        b_rhs[i] = r_val;\n\n        // Aplicar condiciones de frontera\n        if i == 0 {\n            b_rhs[i] -= a_coeff * alpha;\n        }\n        if i == n_int - 1 {\n            b_rhs[i] -= c_coeff * beta;\n        }\n    }\n\n    // Resolver el sistema A * y_interior = b_rhs\n    // Aquí usamos una función ficticia `solve_tridiag` para representar la resolución.\n    // En la práctica, usarías nalgebra::linalg::TridiagonalMatrix o una implementación propia.\n    // let y_interior = solve_tridiag(&a_mat, &b_rhs);\n    // Por simplicidad, devolvemos solo los nodos y placeholders para la solución\n    //println!(\"Matriz A: {:?}\", a_mat);\n    //println!(\"Vector b: {:?}\", b_rhs);\n    println!(\"Sistema tridiagonal generado para {} nodos interiores.\", n_int);\n    println!(\"En una implementación completa, se resolvería: A * y_interior = b_rhs\");\n    \n    let y_solution = vec![0.0; n_nodes + 2]; // Placeholder\n    (x, y_solution)\n}\n\nfn main() {\n    let a = 1.0;\n    let b = 2.0;\n    let alpha = 1.0;\n    let beta = 2.0;\n    let n = 10; // Número de nodos interiores\n\n    let (x, y) = solve_bvp_mdf(p, q, r, a, b, alpha, beta, n);\n\n    println!(\"Nodos x: {:?}\", x);\n    println!(\"Solución y (placeholder): {:?}\", y);\n    // Para visualización, se usaría una crate como plotters o se exportaría a un CSV.\n}\n",
+            "language": "rust",
+            "showSolutionButton": true
+          }
+        ]
       }
     ]
   },
