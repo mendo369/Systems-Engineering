@@ -9,10 +9,15 @@ import BolzanoTheorem from "./components/BolzanoTheorem.vue";
 import BisectionMethod from "./components/BisectionMethod.vue";
 // Importa los nuevos componentes
 import Interpolation from "./components/Interpolation.vue";
-import LeastSquares from "./components/LeastSquares.vue";
 import SystemOfEquations from "./components/SystemOfEquations.vue";
 import FiniteDifferenceMethod from "./components/FiniteDifferenceMethod.vue";
 import Question from "@/components/shared/Question.vue";
+import LeastSquaresQuadratic from "./components/LeastSquaresQuadratic.vue";
+import LeastSquaresLinear from "./components/LeastSquaresLinear.vue";
+import LeastSquaresExponential from "./components/LeastSquaresExponential.vue";
+import NewtonRaphsonMethod from "./components/NewtonRaphsonMethod.vue";
+import SecantMethod from "./components/SecantMethod.vue";
+import FalsePositionMethod from "./components/FalsePositionMethod.vue";
 
 const subjectsStore = useSubjectsStore();
 
@@ -25,15 +30,33 @@ const bisectionMethodExample = subjectsStore.getExamples(
   "simulation-numerical-computing",
   "bisection-method"
 );
-
-// Ejemplos para los nuevos componentes
+const newtonRaphsonMethodExample = subjectsStore.getExamples(
+  "simulation-numerical-computing",
+  "newton-raphson-method"
+);
+const secantMethodExample = subjectsStore.getExamples(
+  "simulation-numerical-computing",
+  "secant-method"
+);
+const falsePositionMethodExample = subjectsStore.getExamples(
+  "simulation-numerical-computing",
+  "false-position-method"
+);
 const interpolationExample = subjectsStore.getExamples(
   "simulation-numerical-computing",
   "interpolation"
 );
-const leastSquaresExample = subjectsStore.getExamples(
+const leastSquaresLinearExample = subjectsStore.getExamples(
   "simulation-numerical-computing",
-  "least-squares"
+  "least-squares-linear"
+);
+const leastSquaresQuadraticExample = subjectsStore.getExamples(
+  "simulation-numerical-computing",
+  "least-squares-quadratic"
+);
+const leastSquaresExponentialExample = subjectsStore.getExamples(
+  "simulation-numerical-computing",
+  "least-squares-exponential"
 );
 const systemOfEquationsExample = subjectsStore.getExamples(
   "simulation-numerical-computing",
@@ -125,6 +148,34 @@ const finiteDifferenceMethodExample = subjectsStore.getExamples(
       :show-solution-button="bisectionMethodExample[0].showSolutionButton"
       :language="bisectionMethodExample[0].language"
     ></Question>
+    <!-- Subsecciones de Métodos Numéricos -->
+
+    <NewtonRaphsonMethod></NewtonRaphsonMethod>
+    <Question
+      v-if="newtonRaphsonMethodExample.length > 0"
+      :text="newtonRaphsonMethodExample[0]?.text"
+      :code="newtonRaphsonMethodExample[0]?.code"
+      :show-solution-button="newtonRaphsonMethodExample[0]?.showSolutionButton"
+      :language="newtonRaphsonMethodExample[0]?.language"
+    ></Question>
+
+    <SecantMethod></SecantMethod>
+    <Question
+      v-if="secantMethodExample.length > 0"
+      :text="secantMethodExample[0]?.text"
+      :code="secantMethodExample[0]?.code"
+      :show-solution-button="secantMethodExample[0]?.showSolutionButton"
+      :language="secantMethodExample[0]?.language"
+    ></Question>
+
+    <FalsePositionMethod></FalsePositionMethod>
+    <Question
+      v-if="falsePositionMethodExample.length > 0"
+      :text="falsePositionMethodExample[0]?.text"
+      :code="falsePositionMethodExample[0]?.code"
+      :show-solution-button="falsePositionMethodExample[0]?.showSolutionButton"
+      :language="falsePositionMethodExample[0]?.language"
+    ></Question>
 
     <!-- NUEVAS SECCIONES AÑADIDAS AL FINAL -->
 
@@ -146,14 +197,45 @@ const finiteDifferenceMethodExample = subjectsStore.getExamples(
     <div class="section-title">
       <h1>Aproximación por Mínimos Cuadrados</h1>
     </div>
-    <LeastSquares></LeastSquares>
-
-    <!-- Ejemplo de código -->
+    <!-- Subsecciones de Mínimos Cuadrados -->
+    <div class="section-title">
+      <h2>Ajuste Lineal</h2>
+    </div>
+    <LeastSquaresLinear></LeastSquaresLinear>
     <Question
-      :text="leastSquaresExample[0]?.text"
-      :code="leastSquaresExample[0]?.code"
-      :show-solution-button="leastSquaresExample[0]?.showSolutionButton"
-      :language="leastSquaresExample[0]?.language"
+      v-if="leastSquaresLinearExample.length > 0"
+      :text="leastSquaresLinearExample[0]?.text"
+      :code="leastSquaresLinearExample[0]?.code"
+      :show-solution-button="leastSquaresLinearExample[0]?.showSolutionButton"
+      :language="leastSquaresLinearExample[0]?.language"
+    ></Question>
+
+    <div class="section-title">
+      <h2>Ajuste Cuadrático</h2>
+    </div>
+    <LeastSquaresQuadratic></LeastSquaresQuadratic>
+    <Question
+      v-if="leastSquaresQuadraticExample.length > 0"
+      :text="leastSquaresQuadraticExample[0]?.text"
+      :code="leastSquaresQuadraticExample[0]?.code"
+      :show-solution-button="
+        leastSquaresQuadraticExample[0]?.showSolutionButton
+      "
+      :language="leastSquaresQuadraticExample[0]?.language"
+    ></Question>
+
+    <div class="section-title">
+      <h2>Ajuste Exponencial</h2>
+    </div>
+    <LeastSquaresExponential></LeastSquaresExponential>
+    <Question
+      v-if="leastSquaresExponentialExample.length > 0"
+      :text="leastSquaresExponentialExample[0]?.text"
+      :code="leastSquaresExponentialExample[0]?.code"
+      :show-solution-button="
+        leastSquaresExponentialExample[0]?.showSolutionButton
+      "
+      :language="leastSquaresExponentialExample[0]?.language"
     ></Question>
 
     <!-- Sección 7: Sistemas de Ecuaciones -->
