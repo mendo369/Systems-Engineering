@@ -98,7 +98,7 @@ const finiteDifferenceMethodExample = subjectsStore.getExamples(
       </div>
       <div>
         <img
-          src="https://via.placeholder.com/300x200?text=Simulación+y+Computación+Numérica"
+          src="https://www.grupossc.com/imagenes/grupossc_electronics1.gif"
           alt="Simulación y Computación Numérica"
           class="w-full min-w-[300px]"
         />
